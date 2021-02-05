@@ -11,6 +11,7 @@ function selectKindOfPlace (name) {
   return `card-container ${placeType}`;
 };
 
+
 export const CardList = props => (
   <div className='card-list'>
     {props.places.map(place => (

@@ -13,7 +13,8 @@ class App extends Component {
 
     this.state = {
       places: [],
-      searchField: ''
+      searchField: '',
+      cardListOn: true
     };
   }
 
@@ -26,14 +27,19 @@ class App extends Component {
 
   handleChange = (e) => this.setState({ searchField: e.target.value});
   
+  cardVisibility = () => this.setState(prevState => ({cardListOn: !prevState.cardListOn}));
+
   render() {
     const { places, searchField } = this.state;
     const filteredPlaces = places.filter(place => place.nombre.toLowerCase().includes(searchField.toLowerCase()));
 
+    console.log(places);
+
     return (
       <div className="App">
         <SearchBox placeholder='Search Places' handleChange={this.handleChange} />
-        <CardList places={filteredPlaces} />
+        {this.state.cardListOn ? <CardList places={filteredPlaces} toggleVisibility={this.cardVisibility} /> : null}
+        
       </div>
     );
   }
