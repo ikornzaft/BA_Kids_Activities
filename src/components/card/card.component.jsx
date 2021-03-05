@@ -1,8 +1,14 @@
 import React from 'react';
+import { withRouter } from 'react-router-dom';
+
 import './card.styles.css';
 
-export const Card = props => (
-  <div className='card-container'>
-    <h2> {props.place.nombre} </h2>
+const Card = ({ place, history }) => (
+  <div className='card-container' onClick={() => history.push(`Places/${place.id}`)}>
+    <h2> {place.nombre.toLowerCase().split(' ').map(word => word.charAt(0).toUpperCase() + word.substring(1)).join(' ')} </h2>
   </div>
 )
+
+const CardWithRouter = withRouter(Card);
+
+export { CardWithRouter };
