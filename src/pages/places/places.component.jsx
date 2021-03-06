@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
+import { withRouter } from 'react-router-dom';
+import { MapComponent } from '../../components';
 
 import './places.styles.css';
-import { Map } from '../../components/map/map.component';
 
-const Places = ({ match }) => {
+const Places = ({ match, history }) => {
     const searchString = `https://epok.buenosaires.gob.ar/getObjectContent?id=${match.params.id}`;
 
     const [place, fetchedPlace] = useState(null);
@@ -40,14 +41,14 @@ const Places = ({ match }) => {
 
     return (
         <div>
+            <button onClick={() => history.goBack()}>Back to the list</button>
             <h1>Places</h1>
             <p>Nombre: {placeData[0]}</p>
             <p>Coordenadas: {placeData[4]}</p>
             <p>Dirección: {placeData[5]}</p>
-            {(coordinates) ? <Map coordinates={coordinates}/> : null}
+            {(coordinates) ? <MapComponent coordinates={coordinates} text={placeData[0]}/> : null}
         </div>
     );
-
 };
 
 export { Places };
