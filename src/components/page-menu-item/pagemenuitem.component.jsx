@@ -1,11 +1,14 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
 
-import { Container } from './pagemenuitem.style';
+import { Container, Image, NameTag, NameText } from './pagemenuitem.style';
 
-const PageMenuItem = ({ name, history, match }) => (
-    <Container onClick={() => history.push(`${match.url}${name}`)}>
-        <h1>{name}</h1>
+const PageMenuItem = ({ name, image, positionx, positiony, history, match }) => (
+    <Container positionx={positionx} positiony={positiony} onClick={() => history.push(`${match.url}${name}`)}>
+        <Image image={image} />
+        <NameTag>
+            <NameText>{name}</NameText>
+        </NameTag>
     </Container>
 );
 

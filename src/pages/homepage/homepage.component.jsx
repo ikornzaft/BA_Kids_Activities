@@ -1,14 +1,37 @@
 import React from 'react';
 
-import { Container } from './homepage.style';
-import { PageMenuItemWithRouter } from '../../components';
+import { Container, Header, Main, IconsContainer } from './homepage.style';
+import { PageMenuItemWithRouter, GenericButtonWithRouter } from '../../components';
+
+import iconMuseums from '../../assets/img/dannie-jing-3GZlhROZIQg-unsplash.jpg';
+import iconKids from '../../assets/img/susan-holt-simpson-GQ327RPuxhI-unsplash.jpg';
+import iconParks from '../../assets/img/gunnar-ridderstrom-2CT0_mPRQxQ-unsplash.jpg';
 
 const HomePage = () => (
     <Container>
-        <h1>HomePage</h1>
-        <PageMenuItemWithRouter name="Museums" />
-        <PageMenuItemWithRouter name="Kids" />
+        <Header>
+            <h3 className="header-kicker">Ciudad De</h3>
+            <h1 className="header-title">BUENOS AIRES</h1>
+            <h2 className="header-subtitle">Places Of Interest</h2>
+        </Header>
+        <Main>
+            <article className="main-article">
+            This guide is intended to help you discover great Buenos Aires City landmarks.
+            </article>
+            <article className="main-article">
+            The information on this site is provided by the API of  Buenos Aires City Government, so we  recommend you to check the availability of the chosen destination before your visit.             </article>
+            <IconsContainer>
+                <PageMenuItemWithRouter positionx="-7" positiony="4" image={iconMuseums} name="Museums" />
+                <PageMenuItemWithRouter positionx="5" positiony="-1" image={iconKids} name="Kids" />
+                <PageMenuItemWithRouter positionx="-7" positiony="-5" image={iconParks} name="Parks" />
+            </IconsContainer>
+            <GenericButtonWithRouter className="primary" text="Learn More" name="Info" />
+        </Main>
     </Container>
 );
 
 export { HomePage };
+
+// <span>Photo by <a href="https://unsplash.com/@dannie_jing?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Dannie Jing</a> on <a href="https://unsplash.com/s/photos/museum?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Unsplash</a></span>
+// <span>Photo by <a href="https://unsplash.com/@gunnarridder?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Gunnar Ridderström</a> on <a href="https://unsplash.com/s/photos/park?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Unsplash</a></span>
+// <span>Photo by <a href="https://unsplash.com/@shs521?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Susan Holt Simpson</a> on <a href="https://unsplash.com/s/photos/wooden-blocks?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Unsplash</a></span>
