@@ -14,10 +14,18 @@ const Container = styled.div`
     overflow: hidden;
     cursor: pointer;
     margin-bottom: 2.5rem;
-    @media ${device.laptop_small} {
-        margin-bottom: 0;
+    @media ${device.mobile} {
+        height: 5.5rem;
+        width: 5.5rem;
+    }
+    @media ${device.tablet} {
         height: 10rem;
         width: 10rem;
+    }
+    @media ${device.laptop_small} {
+        margin-bottom: 0;
+        height: 11rem;
+        width: 11rem;
         border-width: 6px;
         left: ${props => props.positionx}rem;
         top: ${props => props.positiony}rem;
@@ -49,6 +57,10 @@ const NameTag = styled.div`
     opacity: 0.8;
     border-radius: 5px;
     background-color: ${colors.neutral_light};
+    @media ${device.tablet} {
+        height: 2.2rem;
+        width: 7rem;
+    }
     @media ${device.laptop_small} {
         height: 2.2rem;
         width: 7rem;
@@ -62,6 +74,9 @@ const NameText = styled.h3`
     font-family: ${secondaryFont};
     font-size: 0.6rem;
     font-weight: 100;
+    @media ${device.tablet} {
+        font-size: 0.9rem;
+    }
     @media ${device.laptop_small} {
         font-size: 0.9rem;
     }

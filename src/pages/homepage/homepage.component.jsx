@@ -1,32 +1,46 @@
 import React from 'react';
 
-import { Container, Header, Main, IconsContainer } from './homepage.style';
-import { PageMenuItemWithRouter, GenericButtonWithRouter } from '../../components';
+import { Container, Main, TextSection, Header, IconsContainer, MapImage, TextContainer, ButtonContainer, LeftIconsContainer, RightIconsContainer } from './homepage.style';
+import { PageMenuItemWithRouter, GenericButtonWithRouter, Footer } from '../../components';
 
 import iconMuseums from '../../assets/img/dannie-jing-3GZlhROZIQg-unsplash.jpg';
 import iconKids from '../../assets/img/susan-holt-simpson-GQ327RPuxhI-unsplash.jpg';
 import iconParks from '../../assets/img/gunnar-ridderstrom-2CT0_mPRQxQ-unsplash.jpg';
+import map from '../../assets/img/Map.svg';
 
 const HomePage = () => (
     <Container>
-        <Header>
-            <h3 className="header-kicker">Ciudad De</h3>
-            <h1 className="header-title">BUENOS AIRES</h1>
-            <h2 className="header-subtitle">Places Of Interest</h2>
-        </Header>
         <Main>
-            <article className="main-article">
-            This guide is intended to help you discover great Buenos Aires City landmarks.
-            </article>
-            <article className="main-article">
-            The information on this site is provided by the API of  Buenos Aires City Government, so we  recommend you to check the availability of the chosen destination before your visit.             </article>
+            <TextSection>
+                <Header>
+                    <h3 className="header-kicker">Ciudad De</h3>
+                    <h1 className="header-title">BUENOS AIRES</h1>
+                    <h2 className="header-subtitle">Places Of Interest</h2>
+                </Header>
+                <TextContainer>
+                    <article className="textcontainer-article">
+                    This guide is intended to help you discover great Buenos Aires City landmarks.
+                    </article>
+                    <article className="textcontainer-article">
+                    The information on this site is provided by the API of  Buenos Aires City Government, so we  recommend you to check the availability of the chosen destination before your visit.            
+                    </article>
+                </TextContainer>
+                <ButtonContainer>
+                    <GenericButtonWithRouter className="primary" text="Learn More" name="Info" />
+                </ButtonContainer>
+            </TextSection>
             <IconsContainer>
-                <PageMenuItemWithRouter positionx="-7" positiony="4" image={iconMuseums} name="Museums" />
-                <PageMenuItemWithRouter positionx="5" positiony="-1" image={iconKids} name="Kids" />
-                <PageMenuItemWithRouter positionx="-7" positiony="-5" image={iconParks} name="Parks" />
+                <MapImage src={map} alt="Buenos Aires City Map" />
+                <LeftIconsContainer>
+                    <PageMenuItemWithRouter positionx="0" positiony="0" image={iconMuseums} name="Museums" />
+                    <PageMenuItemWithRouter positionx="0" positiony="0" image={iconParks} name="Parks" />
+                </LeftIconsContainer>
+                <RightIconsContainer>
+                    <PageMenuItemWithRouter positionx="0" positiony="0" image={iconKids} name="Kids" />
+                </RightIconsContainer>
             </IconsContainer>
-            <GenericButtonWithRouter className="primary" text="Learn More" name="Info" />
         </Main>
+        <Footer />
     </Container>
 );
 
